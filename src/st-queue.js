@@ -22,14 +22,14 @@ module.exports = class Queue {
   }
 
   getUnderlyingList() {
-    for (var i = 0; i < this.queue.length; i++) {
-    let str = {
-      "value": this.queue[i],
-      "next": this.queue.next
+    let str = {};
+   
+    for (var i = 0; i < this.queue.length + 1; i++) {
+      let tmp = { "value": this.queue[i], "next": str }
+      str = tmp;
     }
     return str;
   }
-}
 
   enqueue(value) {
     this.queue.push(value);
