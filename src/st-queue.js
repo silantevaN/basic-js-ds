@@ -21,10 +21,22 @@ module.exports = class Queue {
     this.queue = [];
   }
 
+
   getUnderlyingList() {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
-  }
+    let str = {};
+  
+   for (let i = this.queue.length; i >= 0; i--) {
+     let tmp = {"value": this.queue[i], "next": str}
+     str = tmp;
+     if (i == this.queue.length) {
+       let n = null;
+       str = n;
+     }
+
+   }
+   return str;
+ }
+
 
   enqueue(value) {
     this.queue.push(value);
